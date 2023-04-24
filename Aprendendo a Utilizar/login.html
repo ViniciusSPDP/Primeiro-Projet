@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <script>
+
+        function modal(){
+            var aparecer = document.getElementById("modal");
+            aparecer.classList.remove("hidden");
+        }
+
+        function desaparecer(){
+            var desaparecer = document.getElementById("modal");
+            desaparecer.classList.add("hidden");
+        }
+
+        
+    </script>
+   
+</head>
+
+<body class="bg-gray-200 w-screen h-screen items-center flex ">
+
+
+    <div class=" bg-white w-96 mx-auto border rounded-xl shadow-lg">
+        <div class="mx-3 space-y-3 mt-1 mb-2">
+            <div class="text-center font-bold">
+                <h3>Login</h3>
+            </div>
+            <div class="email">
+                <label for="email" class="text-sm">E-mail</label>
+                <input type="email" name="email" id="email" class="border w-full py-2 text-xs px-1">
+            </div>
+            <div class="senha">
+                <label for="senha" class="text-sm">Senha</label>
+                <input type="password" name="senha" id="senha" class="border w-full py-2 text-xs px-1">
+            </div>
+            <div>
+                <p class="text-gray-300 text-right text-sm">Esqueci a Senha</p>
+            </div>
+            <div class="justify-end flex">
+                <button
+                    class="px-2 w-full py-1 border rounded text-base ring-blue-600 hover:ring-opacity-50 text-white
+                transition ease-in-out delay-150 animate-bounce bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300
+                " onclick="modal()">
+                    Logar
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="fixed w-full h-full items-center justify-center bg-black bg-opacity-50
+    transition ease-in-out delay-150 transform hidden" id="modal">
+        <span class="relative flex h-3 w-3">
+            <span class="group animate-ping absolute  inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500 text-white">
+            </span>
+          </span>
+          <button
+          class="px-2 py-1 text-base rounded-full ring-blue-600 hover:ring-opacity-50 text-white
+      transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-500 duration-300
+      " onclick="desaparecer()">
+          Aguarde...
+      </button>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

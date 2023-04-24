@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando o Espaço</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos globais */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Estilos do cabeçalho */
+        header {
+            background-color: #222;
+            color: #fff;
+        }
+
+        header a {
+            color: #fff;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        header .logo {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        header .menu {
+            display: flex;
+        }
+
+        header .menu li {
+            list-style: none;
+            margin-left: 30px;
+        }
+
+        header .menu li:first-child {
+            margin-left: 0;
+        }
+
+        header .menu a {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Estilos das notícias */
+        .noticias {
+            margin: 50px 0;
+        }
+
+        .noticias h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .noticias .noticia {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .noticias .noticia-imagem {
+            width: 30%;
+        }
+
+        .noticias .noticia-imagem img {
+            width: 100%;
+        }
+
+        .noticias .noticia-texto {
+            width: 70%;
+            padding-left: 30px;
+        }
+
+        .noticias .noticia-texto h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .noticias .noticia-texto p {
+            margin-bottom: 20px;
+        }
+
+        .noticias .noticia-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .noticias .noticia-info span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .noticias .noticia-info .noticia-categoria {
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* Estilos dos vídeos */
+        .videos {
+            background-color: #f7f7f7;
+            padding: 50px 0;
+        }
+
+        .videos h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .videos .video {
+            margin-bottom: 30px;
+        }
+
+        .videos .video iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .videos .video h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .videos .video p {
+            margin-bottom: 20px;
+        }
+
+        .videos .video-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .videos .video-info span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .videos .video-info .video-categoria {
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        /* Estilos do rodapé */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-coluna {
+            flex-basis: calc(33.33% - 20px);
+            margin-right: 20px;
+        }
+
+        footer .footer-coluna:last-child {
+            margin-right: 0;
+        }
+
+        footer .footer-coluna h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-coluna ul {
+            list-style: none;
+        }
+
+        footer .footer-coluna ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-coluna ul li a {
+            color: #888;
+        }
+
+        footer .footer-coluna ul li a:hover {
+            color: #fff;
+        }
+
+        footer .footer-redes-sociais {
+            flex-basis: 33.33%;
+            display: flex;
+            align-items: center;
+        }
+
+        footer .footer-redes-sociais h4 {
+            font-size: 18px;
+            margin-right: 20px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-redes-sociais .redes-sociais {
+            display: flex;
+        }
+
+        footer .footer-redes-sociais .redes-sociais a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        footer .footer-redes-sociais .redes-sociais a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        footer .footer-creditos {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer .footer-creditos a {
+            color: #fff;
+        }
+
+        /* Media Queries */
+
+        @media (max-width: 768px) {
+            header .menu {
+                display: none;
+            }
+
+            header .menu-toggle {
+                display: block;
+                margin-right: 20px;
+                font-size: 24px;
+            }
+
+            header .menu-toggle i {
+                cursor: pointer;
+            }
+
+            header .logo {
+                margin-left: 20px;
+            }
+
+            footer .footer-coluna {
+                flex-basis: 50%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            footer .footer-redes-sociais {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Notícias</a></li>
+                    <li><a href="#">Vídeos</a></li>
+                    <li><a href="#">Fotos</a></li>
+                    <li><a href="#">Infográficos</a></li>
+                    <li><a href="#">Galerias</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="destaque">
+            <div class="container">
+                <div class="destaque-texto">
+                    <h1>Explorando o Espaço</h1>
+                    <p>Acompanhe as últimas novidades sobre exploração espacial, descobertas astronômicas e muito mais.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="noticias">
+            <div class="container">
+                <h2>Notícias</h2>
+                <div class="noticia">
+                    <div class="noticia-imagem">
+                        <a href="#">
+                            <img src="noticia1.jpg" alt="Notícia 1">
+                        </a>
+                    </div>
+                    <div class="noticia-texto">
+                        <h3><a href="#">NASA descobre novo planeta habitável</a></h3>
+                        <p>A NASA anunciou a descoberta de um novo planeta que pode ser habitável. O planeta, batizado
+                            de Kepler-452b, é cerca de 60% maior que a Terra e orbita uma estrela similar ao Sol.</p>
+                        <div class="noticia-info">
+                            <span class="noticia-data">01/03/2023</span>
+                            <span class="noticia-categoria">Espaço</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="noticia">
+                    <div class="noticia-imagem">
+                        <a href="#">
+                            <img src="noticia2.jpg" alt="Notícia 2">
+                        </a>
+                    </div>
+                    <div class="noticia-texto">
+                        <h3><a href="#">Sonda chinesa pousa em Marte</a></h3>
+                        <p>A sonda chinesa Tianwen-1 pousou em Marte nesta terça-feira (09/03), tornando-seo segundo
+                            país, depois dos Estados Unidos, a conseguir realizar uma missão bem sucedida no planeta
+                            vermelho.</p>
+                        <div class="noticia-info">
+                            <span class="noticia-data">09/03/2023</span>
+                            <span class="noticia-categoria">Exploração Espacial</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="noticia">
+                    <div class="noticia-imagem">
+                        <a href="#">
+                            <img src="noticia3.jpg" alt="Notícia 3">
+                        </a>
+                    </div>
+                    <div class="noticia-texto">
+                        <h3><a href="#">NASA planeja enviar humanos para Marte em 2033</a></h3>
+                        <p>A NASA divulgou seu plano de enviar humanos para Marte até 2033. A agência espacial americana
+                            está trabalhando em tecnologias e missões para tornar possível a realização desse objetivo.
+                        </p>
+                        <div class="noticia-info">
+                            <span class="noticia-data">04/03/2023</span>
+                            <span class="noticia-categoria">Exploração Espacial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="videos">
+            <div class="container">
+                <h2>Vídeos</h2>
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WnIJOJpMdIA" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <h3><a href="#">A história da exploração espacial</a></h3>
+                    <p>Conheça a história da exploração espacial, desde as primeiras sondas enviadas ao espaço até os
+                        planos para enviar humanos a Marte.</p>
+                    <div class="video-info">
+                        <span class="video-data">05/03/2023</span>
+                        <span class="video-categoria">História</span>
+                    </div>
+                </div>
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <h3><a href="#">A vida em outros planetas</a></h3>
+                    <p>Cientistas debatem a possibilidade de existência de vida em outros planetas. Será que estamos
+                        sozinhos no universo?</p>
+                    <div class="video-info">
+                        <span class="video-data">02/03/2023</span>
+                        <span class="video-categoria">Vida Extraterrestre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <a href="#">
+                    <img src="logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Notícias</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-redes-sociais">
+                <h4>Siga-nos nas redes sociais</h4>
+                <div class="redes-sociais">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-creditos">
+            <p>Desenvolvido por <a href="#">Seu Nome</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    /* Menu Toggle */
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('show-menu');
+    });
+
+    /* Scroll Suave */
+
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const href = link.getAttribute('href');
+            const target = document.querySelector(href);
+            const topOffset = 60;
+            const elementPosition = target.offsetTop - topOffset;
+
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+
+            menu.classList.remove('show-menu');
+        });
+    });
+
+</script>
